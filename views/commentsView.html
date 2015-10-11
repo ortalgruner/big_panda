@@ -31,7 +31,7 @@
 	        <input ng-model="filterText" type="text" id="filter" class="filter-feedback-input" placeholder="Filter" />
 	        </p>
 		  <div class="comment" ng-repeat="comment in commentsList | filter: commentsFilter">
-		  	<div class="comment-avatar"><img gravatar-src="comment.email" gravatar-size="50"></div>
+		  	<div class="comment-avatar"><img class="commentImg" gravatar-src="comment.email" gravatar-size="50"></div>
 		  	<div class="comment-contents">
 		    	<div class="comment-email">{{comment.email}}</div>
 		    	<div class="comment-text">{{comment.message}}</div>
