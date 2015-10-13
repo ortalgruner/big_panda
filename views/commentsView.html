@@ -1,47 +1,29 @@
-<div>
-
-
-<div id="form-main">
-  <div id="form-div">
-    <form class="form" name="commentForm" id="form1" autocomplete="off">
-      
-      <p class="email">
-        <input ng-model="yourEmail" name="email" type="text" class="feedback-input" id="email" placeholder="Email" ng-change="emailChange()"/>
- 	 	<span style="color:red" ng-show="emailInvalid">Valid email is required.</span>
-  		</span>
-      </p>
-      
-      <p class="text">
-        <textarea ng-model="yourMessage" name="text" class="feedback-input" id="comment" placeholder="Comment" ng-change="commentChange()"></textarea>
-        <span style="color:red" ng-show="commentInvalid">Comment is required.</span>
-  		</span>
-      </p>
-      
-      
-      <div class="submit">
-        <input ng-click="submitFunc()" type="submit" value="SUBMIT" id="button-blue"/>
-        <div class="ease"></div	>
-      </div>
-    </form>
-
-	<div id="comment-main">
-		
-		<div id="comments-div">
-			<p class="filter ">
-	        <input ng-model="filterText" type="text" id="filter" class="filter-feedback-input" placeholder="Filter" />
-	        </p>
-		  <div class="comment" ng-repeat="comment in commentsList | filter: commentsFilter">
-		  	<div class="comment-avatar"><img class="commentImg" gravatar-src="comment.email" gravatar-size="50"></div>
-		  	<div class="comment-contents">
-		    	<div class="comment-email">{{comment.email}}</div>
-		    	<div class="comment-text">{{comment.message}}</div>
-		  	</div>
+<div id="main-content">
+	<form class="form" name="commentForm" id="form1" autocomplete="off">
+		<div class="email">
+			<input ng-model="yourEmail" name="email" type="text" class="comment-input" id="email" placeholder="Email" ng-change="emailChange()"/>
+			<span style="color:red" ng-show="emailInvalid">Valid email is required.</span>
 		</div>
-
+		<div class="text">
+			<textarea ng-model="yourMessage" name="text" class="comment-input" id="comment" placeholder="Message" ng-change="commentChange()"></textarea>
+			<span style="color:red" ng-show="commentInvalid">Comment is required.</span>
 		</div>
-
+		<div class="submit">
+			<button ng-click="submitFunc()" type="submit" value="SUBMIT" id="button-blue"/>SUBMIT</button>
+		</div>
+	</form>
+	<div id="comments-div">
+		<div class="filter">
+			<input ng-model="filterText" type="text" id="filter" class="filter-input" placeholder="Filter" />
+		</div>
+		<div class="comment" ng-repeat="comment in commentsList | filter: commentsFilter">
+			<div class="comment-avatar">
+				<img class="comment-img" gravatar-src="comment.email" gravatar-size="50">
+			</div>
+			<div class="comment-contents">
+				<div class="comment-email">{{comment.email}}</div>
+				<div class="comment-text">{{comment.message}}</div>
+			</div>
+		</div>
 	</div>
-
 </div>
-
-
